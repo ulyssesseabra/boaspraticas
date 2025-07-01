@@ -1,0 +1,1 @@
+import{_ as a,c,o as e}from"./chunks/framework.Bi4qhrGY.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"codificacao.md","filePath":"codificacao.md"}'),o={name:"codificacao.md"};function t(i,r,s,n,d,f){return e(),c("div")}const m=a(o,[["render",t]]);export{_ as __pageData,m as default};
