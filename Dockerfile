@@ -3,16 +3,16 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY src/package*.json ./
 RUN npm install
 
-COPY . .
+COPY src/ ./
 RUN npm run docs:build
 
 # Runtime
 FROM nginx:alpine
 
-COPY --from=builder /docs/.vitepress/dist /usr/share/nginx/html
+COPY --from=builder /app/docs/.vitepress/dist /usr/share/nginx/html
 
 EXPOSE 80
 
