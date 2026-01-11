@@ -48,7 +48,7 @@ jobs:
             ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}:latest
             ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
       - name: Deploy via Portainer
-        run: curl -X POST ${{ secrets.PORTAINER_WEBHOOK }}
+        run: curl -k -X POST ${{ secrets.PORTAINER_WEBHOOK }}
 
       # - name: Setup Node
       #   uses: actions/setup-node@v4
