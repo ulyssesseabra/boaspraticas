@@ -1,11 +1,7 @@
 # 🏢 Estrutura padrão de projeto
-
-Estrutura sugerida para criação de solução .Net
----
-
 ## 📚 Visão Geral
 
-Este projeto é composto por múltiplos projetos organizados em uma solução .NET, seguindo princípios de Clean Architecture e SOLID.
+Essa é uma estrutura sugerida para criação de solução .Net, este projeto é composto por múltiplos projetos organizados em uma solução .NET, seguindo princípios de Clean Architecture e SOLID.
 
 ---
 
@@ -140,17 +136,20 @@ Nesse projeto todas classes e funções compartilhadas entre os sistemas são im
 ### Matriz de relacionamento
 |                   | Presentation | Domain | IBusiness | Business | IServices | Services | IRepository | Repository | CrossCutting | Shared |
 |-------------------|--------------|--------|-----------|----------|-----------|----------|-------------|------------|--------------|--------|
-| Presentation      |              |        |           |          |           |          |             |            |              |        |
-| Domain             
-| IBusiness           
-| Business           
-| IServices           
-| Services           
-| IRepository         
-| Repository         
-| CrossCutting             
-| Shared             
+| Presentation      |     🟢      |   🔴   |     🟢   |     🔴   |     🟢   |     🔴   |      🔴    |       🔴   |     🟢      |   🟢   |
+| Domain            |     🔴      |   🟢   |     🔴   |     🔴   |     🔴   |     🔴   |      🔴    |       🔴   |     🔴      |   🟡   |
+| IBusiness         |     🔴      |   🟢   |     🟢   |     🔴   |     🔴   |     🔴   |      🔴    |       🔴   |     🔴      |   🟡   | 
+| Business          |     🔴      |   🟢   |     🟢   |     🔴   |     🟢   |     🔴   |      🟢    |       🔴   |     🟢      |   🟢   |
+| IServices         |     🔴      |   🟢   |     🟢   |     🔴   |     🟢   |     🔴   |      🟢    |       🔴   |     🔴      |   🟡   | 
+| Services          |     🔴      |   🟢   |     🟢   |     🔴   |     🟢   |     🔴   |      🟢    |       🔴   |     🟢      |   🟢   |
+| IRepository       |     🔴      |   🟢   |     🔴   |     🔴   |     🔴   |     🔴   |      🟢    |       🔴   |     🔴      |   🟡   | 
+| Repository        |     🔴      |   🟢   |     🔴   |     🔴   |     🔴   |     🔴   |      🟢    |       🔴   |     🟢      |   🟢   |
+| CrossCutting      |     🔴      |   🔴   |     🔴   |     🔴   |     🔴   |     🔴   |      🔴    |       🔴   |     🔴      |   🟢   |      
+| Shared            |     🔴      |   🔴   |     🟡   |     🔴   |     🟡   |     🔴   |      🟡    |       🔴   |     🔴      |   🟢   |
 
 Legenda:  
-✅ = Presente  
-⚪ = Não se aplica / ausente
+🟢 = Acessa  
+🔴 = Não acessa
+🟡 = Acesso com restrição
+
+Observando a matriz no sentido linha acessa coluna, podemos notar que implementações se comunicam pelas interface de forma a manter a injeção de dependencia.

@@ -13,7 +13,8 @@ export default {
             { text: 'Início', link: '/' },
             { text: 'Guia Padronização CSharp', link: '/guia_padronizacao_csharp' },
             { text: 'Design Patterns', link: '/DesignPatterns' },
-            { text: 'Estrutura Padrão', link: '/estruturaProjeto' }
+            { text: 'Estrutura Padrão', link: '/estruturaProjeto' },
+            { text: 'Conceitos', items: [{text:"CRUD", link:"/crud"},{text:"DTO", link:"/dto"},{text:"REST", link:"/rest"}] },
             
           ]
         }
