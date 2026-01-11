@@ -1,5 +1,5 @@
 export default {
-    base: '/boasPraticas/', 
+    base: '/', 
     title: 'Boas Práticas',
     themeConfig: {
       nav: [
