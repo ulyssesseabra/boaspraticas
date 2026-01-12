@@ -1,0 +1,29 @@
+services:
+  boas-praticas:
+    image: ulyssesseabra/us-boas-praticas:latest
+    networks:
+      - app-net
+    deploy:
+      labels:
+        - "traefik.enable=true"
+
+        # Router HTTPS
+        - "traefik.http.routers.boaspraticas.rule=Host(`docs.ussolucoes.com.br`)"
+        - "traefik.http.routers.boaspraticas.entrypoints=websecure"
+        - "traefik.http.routers.boaspraticas.tls.certresolver=letsencrypt-staging"
+
+        # Router HTTP (redirect)
+        - "traefik.http.routers.boaspraticas-http.rule=Host(`docs.ussolucoes.com.br`)"
+        - "traefik.http.routers.boaspraticas-http.entrypoints=web"
+        - "traefik.http.routers.boaspraticas-http.middlewares=redirect-https"
+
+        # Middleware redirect
+        - "traefik.http.middlewares.redirect-https.redirectscheme.scheme=https"
+
+        # Service
+        - "traefik.http.services.boaspraticas.loadbalancer.server.port=80"
+
+networks:
+  app-net:
+    name: app-net
+    external: true
